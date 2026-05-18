@@ -1,0 +1,46 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest]
+        include:
+          - os: windows-latest
+            build_cmd: npm run build
+            dist_cmd: npx electron-builder --win --publish never
+            artifact_name: TwilightCode-*
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: ${{ matrix.build_cmd }}
+
+      - name: Package with electron-builder
+        run: ${{ matrix.dist_cmd }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: TwilightCode-${{ matrix.os }}
+          path: release/${{ matrix.artifact_name }}
+          if-no-files-found: warn

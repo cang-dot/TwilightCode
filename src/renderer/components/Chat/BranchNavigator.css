@@ -1,0 +1,59 @@
+.branch-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--background-panel);
+  flex-shrink: 0;
+}
+
+.branch-nav-btn {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.branch-nav-btn:hover:not(:disabled) {
+  background: var(--background-hover);
+  color: var(--text);
+}
+
+.branch-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.branch-indicator {
+  display: flex;
+  gap: 4px;
+}
+
+.branch-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: var(--background-element);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.branch-dot:hover {
+  background: var(--background-hover);
+  color: var(--text);
+}
+
+.branch-dot.active {
+  background: var(--accent);
+  color: var(--background);
+}

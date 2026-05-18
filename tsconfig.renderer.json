@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": true,
+    "paths": {
+      "@renderer/*": ["./src/renderer/*"],
+      "@core/*": ["./src/core/*"],
+      "@types/*": ["./src/types/*"]
+    }
+  },
+  "include": ["src/renderer/**/*.ts", "src/renderer/**/*.tsx", "src/preload/**/*.ts", "src/types/**/*.ts"]
+}

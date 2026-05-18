@@ -1,0 +1,84 @@
+.welcome-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+}
+
+.welcome-logo-container {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-logo {
+  image-rendering: pixelated;
+}
+
+.welcome-title {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.welcome-hint {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.welcome-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.welcome-branch {
+  color: var(--accent);
+}
+
+.welcome-separator {
+  color: var(--text-dim);
+}
+
+.welcome-time {
+  color: var(--text-muted);
+}
+
+.welcome-directory {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.welcome-dir-label {
+  color: var(--text-dim);
+}
+
+.welcome-dir-path {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.welcome-dir-btn {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--background-element);
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.welcome-dir-btn:hover {
+  background: var(--background-hover);
+  color: var(--text);
+}

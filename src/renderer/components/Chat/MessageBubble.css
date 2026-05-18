@@ -1,0 +1,161 @@
+.message-bubble {
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  max-width: 85%;
+}
+
+.message-bubble.user {
+  align-self: flex-end;
+  background: var(--background-element);
+  color: var(--text);
+}
+
+.message-bubble.assistant {
+  align-self: flex-start;
+  background: var(--background-panel);
+  color: var(--text);
+}
+
+.message-bubble.system {
+  align-self: center;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.message-bubble.tool {
+  align-self: flex-start;
+  background: var(--background-element);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.message.user {
+  cursor: pointer;
+  position: relative;
+}
+.message.user::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity 0.15s;
+  border: 1px dashed var(--border);
+  pointer-events: none;
+}
+.message.user:hover::after {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.message-edit-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.message-edit-input {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-sm);
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  resize: vertical;
+  outline: none;
+}
+
+.message-edit-input:focus {
+  border-color: var(--accent);
+}
+
+.message-edit-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.edit-btn {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.edit-btn.cancel {
+  background: var(--background-element);
+  color: var(--text-muted);
+}
+
+.edit-btn.cancel:hover {
+  background: var(--background-hover);
+}
+
+.edit-btn.save {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.edit-btn.save:hover {
+  opacity: 0.9;
+}
+
+.tool-call {
+  display: flex;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+.tool-call-name {
+  color: var(--primary);
+  font-weight: 600;
+}
+.tool-call-args {
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tool-result {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  padding: 4px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.message-content .markdown-content {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.message.user .markdown-content p {
+  margin: 0;
+}
+
+.message-usage {
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  gap: 8px;
+  font-family: var(--font-mono);
+}
+.usage-tokens {
+  color: var(--text-muted);
+}
+.usage-total {
+  color: var(--text-dim);
+}

@@ -1,0 +1,67 @@
+.thinking-selector {
+  position: relative;
+}
+
+.thinking-selector-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.thinking-selector-trigger:hover {
+  background: var(--background-hover);
+  color: var(--text);
+}
+
+.thinking-selector-arrow {
+  font-size: 10px;
+}
+
+.thinking-selector-dropdown {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 200px;
+  background: var(--background-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.thinking-option {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.thinking-option:hover {
+  background: var(--background-hover);
+}
+
+.thinking-option.active {
+  background: var(--background-active);
+}
+
+.thinking-option-label {
+  font-size: 12px;
+  color: var(--text);
+}
+
+.thinking-option-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+}
