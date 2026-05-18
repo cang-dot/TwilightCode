@@ -8,17 +8,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [windows-latest]
-        include:
-          - os: windows-latest
-            build_cmd: npm run build
-            dist_cmd: npx electron-builder --win --publish never
-            artifact_name: TwilightCode-*
-
-    runs-on: ${{ matrix.os }}
+  build-windows:
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -33,14 +24,17 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: ${{ matrix.build_cmd }}
+        run: npm run build
+
+      - name: Copy icon for packaging
+        run: Copy-Item -Path "src/renderer/assets/logo.png" -Destination "dist/renderer/assets/logo.png" -Force
 
       - name: Package with electron-builder
-        run: ${{ matrix.dist_cmd }}
+        run: npx electron-builder --win --x64 --publish never
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: TwilightCode-${{ matrix.os }}
-          path: release/${{ matrix.artifact_name }}
-          if-no-files-found: warn
+          name: TwilightCode-Windows
+          path: release/*.exe
+          if-no-files-found: error
