@@ -5,6 +5,32 @@
   "main": "dist/main/index.js",
   "author": "TwilightCode",
   "license": "MIT",
+  "build": {
+    "appId": "com.twilightcode.app",
+    "productName": "TwilightCode",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "portable": {
+      "artifactName": "TwilightCode-Portable-${version}.exe"
+    }
+  },
   "scripts": {
     "dev": "concurrently \"npm run dev:main\" \"npm run dev:renderer\"",
     "dev:main": "tsc -p tsconfig.main.json --watch",

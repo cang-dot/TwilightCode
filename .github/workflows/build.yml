@@ -26,13 +26,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Copy icon for packaging
-        shell: powershell
-        run: Copy-Item -Path "src/renderer/assets/logo.png" -Destination "dist/renderer/assets/logo.png" -Force
-
       - name: Package with electron-builder
-        shell: powershell
-        run: npm run dist 2>&1
+        run: npm run dist
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
